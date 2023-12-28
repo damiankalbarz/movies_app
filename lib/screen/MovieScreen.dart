@@ -1,6 +1,7 @@
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:movies_app/models/MovieStorage.dart';
 import 'package:video_player/video_player.dart';
 
 
@@ -45,7 +46,9 @@ class MovieScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15.0),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                MovieStorage.addMovie(movie);
+              },
               child: RichText(
                 text: TextSpan(
                   style: Theme.of(context)
@@ -92,7 +95,7 @@ class MovieScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              '${movie.year} | ${movie.category} | ${movie.duration.inHours}h ${movie.duration.inMinutes.remainder(60)}m',
+              '${movie.year} | ${movie.category}',
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 14,
